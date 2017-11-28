@@ -27,6 +27,7 @@
 	}
 	
 	String transtatus = "";
+	
 %>
 
 
@@ -86,10 +87,12 @@
 	for(int i =0; i< list.size();++i){
 		
 		PurchaseVO purchaseVO = (PurchaseVO)list.get(i);
-		if(purchaseVO.getTranCode().equals("0")){
+		if(purchaseVO.getTranCode().contains("0")){
 			transtatus = "배송 준비 중";
-		}else{
+		}else if(purchaseVO.getTranCode().contains("1")){
 			transtatus = "배송 중";
+		}else{
+			transtatus = "배송 완료";
 		}
 	%>
 	<tr>
@@ -111,7 +114,13 @@
 		<td align="left">현재
 				
 					<%= transtatus %>
-				 입니다.</td>
+				
+				 입니다.
+				 <%if(purchaseVO.getBuyer().getRole().equals("user")){ %>
+				 <%}else{ %>
+				 <a href="/updateTranCode.do?tranNo=<%=purchaseVO.getTranNo()%>">배송처리</a>
+				 <%} %>
+				 </td>
 		<td></td>
 		<td align="left">
 			
@@ -126,9 +135,9 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
 	<tr>
 		<td align="center">
-		 <% for(int i = 1; i<=totalPage;++i){ %>
-			<a href="/listPurchase.do?page=<%= i%>"><%= i %></a> 
-		<%} %>
+		<% for(int j = 1; j<=totalPage;++j) { %>
+			<a href="/listPurchase.do?page=<%= j%>"><%= j %></a> 
+		<% }%>
 		</td>
 	</tr>
 </table>

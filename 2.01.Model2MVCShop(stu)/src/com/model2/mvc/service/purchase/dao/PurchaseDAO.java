@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import javax.servlet.RequestDispatcher;
-
 import com.model2.mvc.common.SearchVO;
 import com.model2.mvc.common.util.DBUtil;
 import com.model2.mvc.service.product.ProductService;
@@ -177,11 +175,15 @@ public class PurchaseDAO {
 		
 	}
 	
-	public void updateTranCode(PurchaseVO purchaseVO) {
+	public void updateTranCode(PurchaseVO purchaseVO) throws Exception{
 		//판매자가 판매 상태를 변경하는 메소드를 구현
 		Connection con = DBUtil.getConnection();
-		String sql = "UPDATE transaction SET tran_status_code = 1";
-		
+		String sql = "UPDATE transaction SET tran_status_code = ?"
+						+ "WHERE tran_No = ?";
+		PreparedStatement preState = con.prepareStatement(sql);
+		preState.setString(1, purchaseVO.getTranCode());
+		preState.setInt(2, purchaseVO.getTranNo());
+		preState.executeUpdate();
 	}
 
 }

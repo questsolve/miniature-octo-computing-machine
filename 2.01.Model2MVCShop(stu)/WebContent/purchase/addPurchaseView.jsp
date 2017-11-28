@@ -56,7 +56,7 @@ function fncAddPurchase() {
 	</tr>
 </table>
 
-<input type="hidden" name="prodNo" value="10000" />
+<input type="hidden" name="prodNo" value="<%=purchaseVO.getPurchaseProd().getProdNo() %>" />
 
 <table width="600" border="0" cellspacing="0" cellpadding="0"	align="center" style="margin-top: 13px;">
 	<tr>

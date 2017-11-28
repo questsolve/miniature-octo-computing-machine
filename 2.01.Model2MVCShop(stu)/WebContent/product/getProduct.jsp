@@ -66,7 +66,7 @@
 			ªÛ«∞∏Ì <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01"><%= productVO.getProdName() %>></td>
+		<td class="ct_write01"><%= productVO.getProdName() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -77,7 +77,7 @@
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<img src = "/images/uploadFiles/../../images/empty.GIF"/>
+			<img src = "/images/uploadFiles/../../images/<%=productVO.getFileName()%>"/>
 		</td>
 	</tr>
 	<tr>
