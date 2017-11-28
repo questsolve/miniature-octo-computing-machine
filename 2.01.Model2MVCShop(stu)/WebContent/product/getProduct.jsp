@@ -77,7 +77,7 @@
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<img src = "/images/uploadFiles/../../images/<%=productVO.getFileName()%>"/>
+			<img src = "/images/uploadFiles/<%=productVO.getFileName()%>"/>
 		</td>
 	</tr>
 	<tr>
