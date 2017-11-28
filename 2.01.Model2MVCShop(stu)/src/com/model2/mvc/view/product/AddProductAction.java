@@ -24,7 +24,8 @@ public class AddProductAction extends Action {
 		
 		if(FileUpload.isMultipartContent(request)) {
 			
-			String temDir= "C:\\workspace\\2.01.Model2MVCShop(stu)\\WebContent\\images\\uploadFiles";
+			String temDir= "C:\\Users\\bitcamp\\git\\01.Model2MVCShop1\\2.01.Model2MVCShop(stu)\\WebContent\\images\\uploadFiles";
+			
 			
 			DiskFileUpload fileUpload = new DiskFileUpload();
 			fileUpload.setRepositoryPath(temDir);
@@ -78,7 +79,7 @@ public class AddProductAction extends Action {
 				ProductService service = new ProductServiceImpl();
 				service.addProduct(productVO);
 				
-				request.setAttribute("product", productVO);
+				request.setAttribute("productVO", productVO);
 			
 			}else {
 				int overSize = (request.getContentLength()/1000000);
